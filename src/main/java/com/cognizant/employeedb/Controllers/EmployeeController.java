@@ -19,11 +19,27 @@ public class EmployeeController {
     }
 
     @GetMapping("/all")
-    public Iterable<Employee> all(){ return employeeService.getAllEmployees(); }
+    public Iterable<Employee> all(){
+        return employeeService.getAllEmployees();
+    }
 
     @PostMapping("/")
-    public Employee save(@RequestBody Employee employee) { return employeeService.saveEmployee(employee); }
+    public Employee save(@RequestBody Employee employee) {
+        return employeeService.saveEmployee(employee);
+    }
 
     @GetMapping("/{id}")
-    public Optional<Employee> getById(@PathVariable("id")  Long id) { return employeeService.getEmployeeById(id); }
+    public Optional<Employee> getById(@PathVariable("id") Long id) {
+        return employeeService.getEmployeeById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Optional<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
+      return employeeService.update(id, employee);
+    }
+
+    @DeleteMapping("/{id}")
+    public boolean deleteEmployee(@PathVariable Long id){
+      return employeeService.delete(id);
+    }
 }
