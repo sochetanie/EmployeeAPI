@@ -37,36 +37,23 @@ public class EmployeeService {
     return false;
   }
 
-  public Optional<Employee> update(Long id, Employee employee){
-    Optional<Employee> empOptional = repository.findById(id);
-    if (empOptional.isPresent()) {
-      Employee emp = empOptional.get();
-      if (employee.getName() != null) {
-        emp.setName(employee.getName());
-      }
-      if (employee.getAddress() != null) {
-        emp.setAddress(employee.address());
-      }
-      if (employee.getCity() != null) {
-        emp.setCity(employee.city());
-      }
-      if (employee.getState() != null) {
-        emp.setState(employee.state());
-      }
-      if (employee.getZip() != null) {
-        emp.setZip(employee.zip());
-      }
-      if (employee.getPhoneNumber() != null) {
-        emp.setPhoneNumber(employee.phoneNumber());
-      }
-      if (employee.getJobTitle() != null) {
-        emp.setJobTitle(employee.jobTitle());
-      }
-
-      repository.save(emp);
-      return Optional.of(emp);
-    }
-    return Optional.empty();
+  public Optional<Employee> update(Long id, Employee newEmployee) {
+    return repository.findById(id)
+        .map(employee -> {
+          employee.setName(newEmployee.getName());
+          employee.setRole(newEmployee.getRole());
+          employee.setAddress(newEmployee.getAddress());
+          employee.setCity(newEmployee.getCity());
+          employee.setState(newEmployee.getState());
+          employee.setZip(newEmployee.getZip());
+          employee.setPhoneNumber(newEmployee.getPhoneNumber());
+          employee.setJobTitle(newEmployee.getJobTitle());
+          return repository.save(employee);
+        })
+        .orElseGet(() -> {
+          newEmployee.setId(id);
+          return repository.save(newEmployee);
+        });
   }
 
 }
