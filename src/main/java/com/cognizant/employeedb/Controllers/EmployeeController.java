@@ -34,8 +34,8 @@ public class EmployeeController {
     }
 
     @PutMapping("/{id}")
-    public Optional<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
-      return employeeService.update(id, employee);
+    public Optional<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee newEmployee) {
+      return employeeService.update(id, newEmployee);
     }
 
     @DeleteMapping("/{id}")
