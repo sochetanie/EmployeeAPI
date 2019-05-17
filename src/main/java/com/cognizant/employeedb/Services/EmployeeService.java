@@ -48,10 +48,6 @@ public class EmployeeService {
           employee.setPhoneNumber(newEmployee.getPhoneNumber());
           employee.setJobTitle(newEmployee.getJobTitle());
           return repository.save(employee);
-        })
-        .orElseGet(() -> {
-          newEmployee.setId(id);
-          return repository.save(newEmployee);
         });
   }
 
