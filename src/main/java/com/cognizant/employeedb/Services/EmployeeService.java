@@ -1,7 +1,7 @@
-package com.galvanize.employeedb.Services;
+package com.cognizant.employeedb.Services;
 
-import com.galvanize.employeedb.Entities.Employee;
-import com.galvanize.employeedb.Repositories.EmployeeRepository;
+import com.cognizant.employeedb.Entities.Employee;
+import com.cognizant.employeedb.Repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class EmployeeService {
         this.repository = repository;
     }
 
-    public List<Employee> getAllEmployees() {
+    public Iterable<Employee> getAllEmployees() {
       return this.repository.findAll();
     }
 
@@ -42,11 +42,9 @@ public class EmployeeService {
         .map(employee -> {
           employee.setName(newEmployee.getName());
           employee.setAddress(newEmployee.getAddress());
-          employee.setCity(newEmployee.getCity());
-          employee.setState(newEmployee.getState());
-          employee.setZip(newEmployee.getZip());
           employee.setPhoneNumber(newEmployee.getPhoneNumber());
           employee.setJobTitle(newEmployee.getJobTitle());
+          employee.setHireDate(newEmployee.getHireDate());
           return repository.save(employee);
         });
   }
