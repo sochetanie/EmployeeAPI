@@ -17,7 +17,7 @@ public class EmployeeService {
         this.repository = repository;
     }
 
-    public Iterable<Employee> getAllEmployees() {
+    public List<Employee> getAllEmployees() {
       return this.repository.findAll();
     }
 
