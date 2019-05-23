@@ -1,9 +1,9 @@
-package com.galvanize.employeedb;
+package com.cognizant.employeedb;
 
-import com.galvanize.employeedb.Controllers.EmployeeController;
-import com.galvanize.employeedb.Entities.Employee;
-import com.galvanize.employeedb.Services.EmployeeService;
-import com.galvanize.employeedb.Repositories.EmployeeRepository;
+import com.cognizant.employeedb.Controllers.EmployeeController;
+import com.cognizant.employeedb.Entities.Employee;
+import com.cognizant.employeedb.Services.EmployeeService;
+import com.cognizant.employeedb.Repositories.EmployeeRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -73,7 +73,7 @@ public class EmployeedbApplicationTests {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         Employee employee = new Employee(1L, "Joe Test", "123 Any Street", "Anytown", "GA", "30269", "123-456-7890", "tester", sdf.parse("03/14/2018"));
         //Setup
-        given(employeeRepository.save( employee )).willReturn( employee );
+        given(employeeRepository.save(employee)).willReturn( employee );
         EmployeeService es = new EmployeeService(employeeRepository);
         EmployeeController sut = new EmployeeController(es);
 
