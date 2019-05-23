@@ -38,15 +38,28 @@ public class EmployeeService {
   }
 
   public Optional<Employee> update(Long id, Employee newEmployee) {
-    return repository.findById(id)
-        .map(employee -> {
-          employee.setName(newEmployee.getName());
-          employee.setAddress(newEmployee.getAddress());
-          employee.setPhoneNumber(newEmployee.getPhoneNumber());
-          employee.setJobTitle(newEmployee.getJobTitle());
-          employee.setHireDate(newEmployee.getHireDate());
-          return repository.save(employee);
-        });
+    Optional<Employee> employee = repository.findById(id);
+    if(employee.isPresent()){
+      Employee emp = employee.get();
+      if(newEmployee.getName() != null){
+        emp.setName(newEmployee.getName());
+      }
+      if(newEmployee.getAddress() != null){
+        emp.setAddress(newEmployee.getAddress());
+      }
+      if(newEmployee.getPhoneNumber() != null){
+        emp.setPhoneNumber(newEmployee.getPhoneNumber());
+      }
+      if(newEmployee.getJobTitle() != null){
+        emp.setJobTitle(newEmployee.getJobTitle());
+      }
+      if(newEmployee.getHireDate() != null){
+        emp.setHireDate(newEmployee.getHireDate());
+      }
+      repository.save(emp);
+      return Optional.of(emp);
+    }
+    return Optional.empty();
   }
 
 }

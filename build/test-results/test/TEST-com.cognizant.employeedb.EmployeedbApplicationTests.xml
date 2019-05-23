@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.cognizant.employeedb.EmployeedbApplicationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-05-23T10:37:55" hostname="Allas-MacBook-Air.local" time="0.091">
+<testsuite name="com.cognizant.employeedb.EmployeedbApplicationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2019-05-23T15:03:40" hostname="Allas-MacBook-Air.local" time="0.08">
   <properties/>
-  <testcase name="getEmplloyeeShouldReturnASingleEmployeeWhenAnEmpIDisProvided" classname="com.cognizant.employeedb.EmployeedbApplicationTests" time="0.077"/>
-  <testcase name="getEmployeeShouldReturnAListOfEmployees" classname="com.cognizant.employeedb.EmployeedbApplicationTests" time="0.008"/>
-  <testcase name="postEmployeeShouldAddANewEmployeeToTheDatabase" classname="com.cognizant.employeedb.EmployeedbApplicationTests" time="0.003"/>
+  <testcase name="getEmplloyeeShouldReturnASingleEmployeeWhenAnEmpIDisProvided" classname="com.cognizant.employeedb.EmployeedbApplicationTests" time="0.074"/>
+  <testcase name="getEmployeeShouldReturnAListOfEmployees" classname="com.cognizant.employeedb.EmployeedbApplicationTests" time="0.002"/>
+  <testcase name="postEmployeeShouldAddANewEmployeeToTheDatabase" classname="com.cognizant.employeedb.EmployeedbApplicationTests" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
