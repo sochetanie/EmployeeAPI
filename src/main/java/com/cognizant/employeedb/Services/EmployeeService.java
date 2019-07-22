@@ -18,15 +18,15 @@ public class EmployeeService {
     }
 
     public Iterable<Employee> getAllEmployees() {
-      return this.repository.findAll();
+      return repository.findAll();
     }
 
     public Employee saveEmployee(Employee employee) {
-      return this.repository.save(employee);
+      return repository.save(employee);
     }
 
     public Optional<Employee> getEmployeeById(long id) {
-      return this.repository.findById(id);
+      return repository.findById(id);
     }
 
   public boolean delete(Long id){
